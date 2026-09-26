@@ -41,6 +41,7 @@ public class DriveSubsystem extends BaseDriveSubsystem implements DataFrameRefre
         // As an example, here is some code that has the frontLeft motor to spin
         // according to the value of leftPower:
         frontLeft.setPower(leftPower);
+        frontRight.setPower(rightPower);
         // TODO: Add code to set the right motors to the rightPower value.
 
     }
