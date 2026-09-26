@@ -19,11 +19,13 @@ public class ArcadeDriveWithJoysticksCommand extends BaseCommand {
 
     @Override
     public void initialize() {
-
     }
 
     @Override
     public void execute() {
+        double yValue = operatorInterface.gamepad.getLeftVector().getY();
+        double xValue = operatorInterface.gamepad.getLeftVector().getX();
+        drive.tankDrive(yValue,xValue);
     }
 
 }
