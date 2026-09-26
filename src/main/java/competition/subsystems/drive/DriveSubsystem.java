@@ -19,6 +19,7 @@ public class DriveSubsystem extends BaseDriveSubsystem implements DataFrameRefre
 
     public final XCANMotorController frontLeft;
     public final XCANMotorController frontRight;
+    public boolean precisionDrive = false;
 
     DoubleProperty dp;
 
@@ -40,11 +41,18 @@ public class DriveSubsystem extends BaseDriveSubsystem implements DataFrameRefre
         // You'll need to take these power values and assign them to all of the motors.
         // As an example, here is some code that has the frontLeft motor to spin
         // according to the value of leftPower:
-        frontLeft.setPower(leftPower);
-        // TODO: Add code to set the right motors to the rightPower value.
-
+        if (!precisionDrive) {
+            frontLeft.setPower(leftPower);
+            frontRight.setPower(rightPower);
+        }
+        else {
+            frontLeft.setPower(leftPower/2);
+            frontRight.setPower(rightPower/2);
+        }
     }
-
+    public void togglePrecisionDrive(){
+        precisionDrive = !precisionDrive;
+    }
 
     // You can ignore all of the code undearneat this comment -->
     // You won't have to touch it.

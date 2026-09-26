@@ -16,6 +16,7 @@ public class TogglePrecisionDriveCommand extends BaseCommand {
 
     @Override
     public void initialize() {
+        drive.togglePrecisionDrive();
         // Here, you want to call the DriveSubsystem and tell it to change its precision
         // mode.
         // This means you'll need to add a new method into DriveSubsystem, and there are
