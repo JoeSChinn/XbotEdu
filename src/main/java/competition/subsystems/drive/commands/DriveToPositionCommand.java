@@ -53,14 +53,14 @@ public class DriveToPositionCommand extends BaseCommand {
         currentPosition = pose.getPosition();
         error = setPosition - currentPosition;
         velocity = prevError - error;
-        power = 0.18 * error - 0.03/error;
+        power = 0.5 * error - 15*velocity;
         drive.tankDrive(power,power);
         prevError = error;
     }
 
     @Override
     public boolean isFinished() {
-        return (error <= 0.1 && velocity <= 0.0025);
+        return (error <= 0.1 && velocity <= 0.002);
         // Modify this to return true once you have met your goal,
         // and you're moving fairly slowly (ideally stopped)
     }
