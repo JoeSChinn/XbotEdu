@@ -30,7 +30,7 @@ public class TurnLeft90DegreesCommand extends BaseCommand {
     public void execute() {
         currentRotation = pose.getCurrentHeading().getDegrees();
         error = goalRotation - currentRotation;
-        power = 0.005 * error;
+        power = 0.006 * error;
         drive.tankDrive(-power, power);
     }
 
