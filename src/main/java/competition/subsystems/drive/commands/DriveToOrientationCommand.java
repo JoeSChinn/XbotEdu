@@ -69,6 +69,6 @@ public class DriveToOrientationCommand extends BaseCommand {
     public boolean isFinished() {
         // Modify this to return true once you have met your goal,
         // and you're moving fairly slowly (ideally stopped)
-        return (Math.abs(error) <= 0.1 && velocity <= 0.005);
+        return (Math.abs(error) <= 0.1 && velocity <= 0.05);
     }
 }
